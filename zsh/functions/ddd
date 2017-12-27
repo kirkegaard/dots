@@ -1,0 +1,35 @@
+# For storing those links real quick for later
+ddd() {
+    DDD="/Users/christian/Dropbox/Documents/.ddd.txt"
+    COUNT=9999
+
+    case "$1" in
+        "add")
+            echo $2 >> $DDD
+            return
+            ;;
+        "list" | "open")
+            LINKS=$(cat $DDD)
+            ;;
+        "random")
+            LINKS=$(gshuf $DDD)
+            ;;
+        "search")
+            LINKS=$(grep $2 $DDD)
+            ;;
+    esac
+
+    if [[ ${@: -1} =~ '^[0-9]+$' ]] ; then
+        COUNT=${@: -1}
+        LINKS=$(echo $LINKS | tail -n $COUNT)
+    fi
+
+    if [ $1 = 'list' ]; then
+        echo $LINKS
+        return
+    fi
+
+    open -a /Applications/Google\ Chrome.app --new --args --incognito $(echo $LINKS)
+
+    sed -i '' '$ d' $HISTFILE
+}

@@ -1,0 +1,7 @@
+np() {
+    json=$(curl -s "http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&api_key=f5f149ffcdf2e0db0888f6c477c4abc1&user=ranza&format=json")
+    artist=$(echo $json | jq -r '.recenttracks.track[0].artist["#text"]')
+    song=$(echo $json | jq -r '.recenttracks.track[0].name')
+
+    echo "♫ $artist - $song"
+}

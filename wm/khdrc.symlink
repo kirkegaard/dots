@@ -1,0 +1,52 @@
+# reload config
+cmd + alt + ctrl - r : khd -e "reload"
+
+# equalize size of windows
+shift + alt - 0 : chunkc tiling::desktop --equalize
+
+# focus window
+alt - h : chunkc tiling::window --focus west
+alt - j : chunkc tiling::window --focus south
+alt - k : chunkc tiling::window --focus north
+alt - l : chunkc tiling::window --focus east
+
+# swap window
+shift + alt - h : chunkc tiling::window --swap west
+shift + alt - j : chunkc tiling::window --swap south
+shift + alt - k : chunkc tiling::window --swap north
+shift + alt - l : chunkc tiling::window --swap east
+
+# send window to desktop
+shift + alt - 1 : chunkc tiling::window --send-to-desktop 1
+shift + alt - 2 : chunkc tiling::window --send-to-desktop 2
+shift + alt - 3 : chunkc tiling::window --send-to-desktop 3
+shift + alt - 4 : chunkc tiling::window --send-to-desktop 4
+shift + alt - 5 : chunkc tiling::window --send-to-desktop 5
+shift + alt - 6 : chunkc tiling::window --send-to-desktop 6
+
+# increase region size
+shift + alt - a : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge west
+shift + alt - s : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge south
+shift + alt - w : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge north
+shift + alt - d : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge east
+
+# decrease region size
+shift + cmd + alt - a : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge west
+shift + cmd + alt - s : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge south
+shift + cmd + alt - w : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge north
+shift + cmd + alt - d : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge east
+
+# rotate tree
+alt - r : chunkc tiling::desktop --rotate 90
+
+# toggle window fullscreen
+alt - f : chunkc tiling::window --toggle fullscreen
+
+# toggle window parent zoom
+alt - d : chunkc tiling::window --toggle parent
+
+# toggle window split type
+alt - e : chunkc tiling::window --toggle split
+
+# float / unfloat window
+alt - t : chunkc tiling::window --toggle float
