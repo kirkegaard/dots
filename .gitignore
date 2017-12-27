@@ -1,1 +1,3 @@
 plugged
+ssh/ssh.symlink/*
+!ssh/ssh.symlink/config

@@ -2,7 +2,7 @@ export PROJECTS=$HOME/Development
 export ZSH=$PROJECTS/dots
 export DOTFILES=$PROJECTS/dots
 
-export PATH="./bin:$HOME/bin:$HOME/dotfiles/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="./bin:$HOME/bin:$DOTFILES/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export VISUAL=vim
 export EDITOR=$VISUAL
 

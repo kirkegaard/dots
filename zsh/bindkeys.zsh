@@ -1,3 +1,4 @@
+bindkey -e
 bindkey "\e[3~" delete-char
 
 # up-down searches history
@@ -5,9 +6,6 @@ bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 bindkey '^[b' backward-word
 bindkey '^[f' forward-word
-
-#bindkey "^[a" beginning-of-line
-#bindkey "^[e" end-of-line
 
 # use incremental search
 bindkey "^R" history-incremental-search-backward
