@@ -3,11 +3,9 @@ ddd() {
     DDD="/Users/christian/Dropbox/Documents/.ddd.txt"
     COUNT=9999
 
+    sed -i '' '$ d' $HISTFILE
+
     case "$1" in
-        "add")
-            echo $2 >> $DDD
-            return
-            ;;
         "list" | "open")
             LINKS=$(cat $DDD)
             ;;
@@ -16,6 +14,14 @@ ddd() {
             ;;
         "search")
             LINKS=$(grep $2 $DDD)
+            ;;
+        "add")
+            echo "$2" >> $DDD
+            return
+            ;;
+        *)
+            echo "$1" >> $DDD
+            return
             ;;
     esac
 
@@ -30,6 +36,4 @@ ddd() {
     fi
 
     open -a /Applications/Google\ Chrome.app --new --args --incognito $(echo $LINKS)
-
-    sed -i '' '$ d' $HISTFILE
 }
