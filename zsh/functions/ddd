@@ -3,7 +3,7 @@ ddd() {
     DDD="/Users/christian/Dropbox/Documents/.ddd.txt"
     COUNT=9999
 
-    sed -i '' '$ d' $HISTFILE
+    #sed -i '' '/ddd/d' $HISTFILE
 
     case "$1" in
         "list" | "open")

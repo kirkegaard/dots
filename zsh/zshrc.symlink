@@ -2,13 +2,14 @@ export PROJECTS=$HOME/Development
 export ZSH=$PROJECTS/dots
 export DOTFILES=$PROJECTS/dots
 
-export PATH="./bin:$HOME/bin:$DOTFILES/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="$HOME/.pyenv:$HOME/go/bin:$HOME/.composer/vendor/bin:./bin:$HOME/bin:$DOTFILES/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export VISUAL=vim
 export EDITOR=$VISUAL
 
 # Load all functions in fn dir
 for config_file ($ZSH/**/*.zsh) source $config_file
 
+unsetopt nomatch
 autoload -U compinit
 compinit
 
@@ -26,6 +27,13 @@ source $ZPLUG_HOME/init.zsh
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
+zplug 'rupa/z', use:'*.sh'
+#zplug 'pyenv/pyenv', as:"command", use:"bin/*"
+#zplug 'junegunn/fzf', \
+    #use:"shell", \
+    #hook-build:'./install --all --no-update-rc --no-key-bindings'
+#zplug 'junegunn/fzf', as:"command", use:"bin/*"
+
 
 if ! zplug check --verbose; then
   printf "Install? [y/N]: "
@@ -35,6 +43,9 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
+
+# Load pyenv
+eval "$(pyenv init -)"
 
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

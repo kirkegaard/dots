@@ -1,0 +1,17 @@
+body {
+  background: #222;
+  color: #aaa;
+}
+cite, .subsect {
+  color: #666;
+}
+.st {
+  color: #999;
+}
+a:link, a.fl:link, .sectHdr {
+  color: #ccc;
+}
+h3 a:visited {
+  color: #aaa;
+}
+

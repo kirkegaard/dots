@@ -1,0 +1,12 @@
+nibbler() {
+    case "$1" in
+        "say" )
+            CHANNEL="260858852776476672"
+            ;;
+        "nsfw" )
+            CHANNEL="265922794762665985"
+            ;;
+    esac
+    
+    curl -X POST http://lowpoly.dk:9876/say -H "Authorization: trololol" -d '{"channel": '$CHANNEL', "msg": "'$2'"}'
+}

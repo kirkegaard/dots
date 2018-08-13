@@ -40,11 +40,9 @@ chunkc set window_float_next             0
 chunkc set window_float_center           1
 chunkc set window_region_locked          1
 
-#
-# NOTE: shell commands require escaped quotes
-#       to pass value containing a whitespace.
-#
-# chunkc set mouse_modifier              \"cmd shift\"
+chunkc set mouse_resize_window           \"fn 1\"
+chunkc set mouse_move_window             "none"
+
 chunkc set mouse_modifier                fn
 
 chunkc set preselect_border_color        0xffffff00
@@ -56,10 +54,10 @@ chunkc set preselect_border_radius       0
 #       (https://github.com/koekeishiya/chwm-sa)
 #
 
-chunkc set window_float_topmost          0
-chunkc set window_fade_inactive          0
-chunkc set window_fade_alpha             0.85
-chunkc set window_fade_duration          0.5
+#chunkc set window_float_topmost          0
+#chunkc set window_fade_inactive          0
+#chunkc set window_fade_alpha             0.85
+#chunkc set window_fade_duration          0.5
 
 #
 # NOTE: the following are config variables for the chunkwm-border plugin.
