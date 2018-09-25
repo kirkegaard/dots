@@ -1,7 +1,7 @@
 nibbler() {
     case "$1" in
         "say" )
-            CHANNEL="260858852776476672"
+            CHANNEL="483727087903965194"
             ;;
         "nsfw" )
             CHANNEL="265922794762665985"
