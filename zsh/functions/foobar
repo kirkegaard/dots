@@ -1,0 +1,7 @@
+foobar() {
+  read "brave?Here be dragons. Continue?"
+  if [[ "$brave" =~ ^[Yy]$ ]]
+  then
+    echo "oh shit"
+  fi
+}

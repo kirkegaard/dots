@@ -1,6 +1,7 @@
 # General
 alias vim='nvim'
 alias so='source'
+alias ls='exa'
 alias l='ls'
 alias ll='ls -lh'
 alias la='ls -a'
