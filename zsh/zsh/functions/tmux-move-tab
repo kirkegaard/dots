@@ -1,0 +1,14 @@
+move_tab() {
+    local src=$1
+    local dest=$2
+    if [ "$src" -gt "$dest" ]; then
+        for ((i=src; i>dest; i--)); do
+            tmux swap-window -s "$i" -t $((i-1))
+        done
+        tmux select-window -t "$dest"
+    else
+        echo "Moving a tab forward is not supported."
+    fi
+}
+
+move_tab "$@"

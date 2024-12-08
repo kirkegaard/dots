@@ -1,0 +1,19 @@
+safecopy() {
+  rsync -acvh --info=progress2 $1/ $2
+
+  read "isDiff?Do you wanna diff [Yn]? "
+  if [[ "$isDiff" =~ ^[Yy]$ ]]
+  then
+    echo "Creating diff..."
+    diff_output="$(diff -rq $1 $2 > /dev/null)"
+
+    if [ -n "$diff_output"]; then
+      echo "Diff passed"
+    else
+      echo $d
+      echo "Diff failed"
+    fi
+  fi
+
+  echo "Copy complete!"
+}

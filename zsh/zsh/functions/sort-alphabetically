@@ -1,0 +1,17 @@
+sort-alphabetically() {
+  local dir=$(pwd)
+  local files=("$dir"/*)
+
+  for file in "${files[@]}"; do
+    local filename=$(basename "$file")
+    local first_char=$(echo $filename | cut -c1 | tr [:upper:] [:lower:])
+
+    if [ ! -d "$dir/$first_char" ]; then
+      mkdir "$dir/$first_char"
+    fi
+
+    if [ "$dir/$first_char" != "$(dirname "$file")" ]; then
+      mv "$file" "$dir/$first_char"
+    fi
+  done
+}

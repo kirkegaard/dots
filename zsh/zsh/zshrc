@@ -1,0 +1,107 @@
+# General
+export ZSH_HOME=$HOME/.zsh
+export PROJECTS=$HOME/Development
+
+# Gameboy
+export SDCCDIR="$PROJECTS/gameboy/sdcc"
+export GBDK="$PROJECTS/gameboy/gbdk-2020/build/gbdk"
+export PATH=$GBDK/bin:$SDCCDIR/bin:$PATH
+
+# Amiga
+export VBCC="$PROJECTS/amiga/amiga-cc/vbcc/"
+export PATH=$VBCC/bin:$PATH
+
+# Go
+export GOPATH="$PROJECTS/go"
+export PATH=$GOPATH/bin:$PATH
+
+# Java
+export SPRING_PROFILES_ACTIVE=local
+
+# Python
+export PYTHONDONTWRITEBYTECODE=True
+
+# Rust
+export CARGO_HOME="$HOME/.cargo"
+export PATH=$CARGO_HOME/bin:$PATH
+
+# Git
+export GITHUB_ACTOR=$GITHUB_ACTOR
+export GITHUB_TOKEN=$GITHUB_TOKEN
+
+# Ruby
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# Editor
+export EDITOR=nvim #BTW
+export VISUAL=$EDITOR
+
+# NVM
+export NVM_LAZY_LOAD=false
+export NVM_AUTO_USE=true
+export NVM_SYMLINK_CURRENT=true
+export PATH="$HOME/.nvm/current/bin/:$PATH"
+
+# FZF
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Lang
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# Paths
+export PATH="$HOME/.bin:$HOME/.local/bin:$PATH"
+
+# Load all functions in fn dir
+for config_file ($ZSH_HOME/**/*.zsh) source $config_file
+# for config_file ($ZSH_HOME/**/completion.sh) source $config_file
+
+# Mac specifics
+if [[ "$(uname -s)" == "Darwin" ]] then;
+  # Mac SDKs
+  export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
+
+  # Homebrew
+  export HOMEBREW_NO_ENV_HINTS=1
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  # eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+# Zplug
+[ -z "$ZPLUG_HOME" ] && export ZPLUG_HOME=$HOME/.zplug
+source $ZPLUG_HOME/init.zsh
+
+
+zplug "nnao45/zsh-kubectl-completion"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-autosuggestions"
+zplug 'rupa/z', use:'*.sh'
+# zplug "lukechilds/zsh-nvm"
+# zplug 'pyenv/pyenv', as:"command", use:"bin/*"
+zplug 'junegunn/fzf', \
+    use:"shell", \
+    hook-build:'./install --all --no-update-rc --no-key-bindings'
+
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+
+zplug load
+
+# iTerm integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# pyenv
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+
+# sdkman
+export SDKMAN_DIR="/Users/christian/.sdkman"
+[[ -s "/Users/christian/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/christian/.sdkman/bin/sdkman-init.sh"

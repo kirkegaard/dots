@@ -1,0 +1,11 @@
+note() {
+  p="/Users/christian/ranzadk@gmail.com - Google Drive/My Drive/Documents/Notes"
+  d=$(date +%Y-%m-%d);
+  s=${1}
+  if [[ "$s" ]]
+  then
+    nvim $p/$d-${s:gs/ /-/}.md
+  else
+    nvim $p
+  fi
+}
