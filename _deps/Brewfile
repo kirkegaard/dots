@@ -77,7 +77,6 @@ brew "yarn"
 brew "yq"
 brew "z"
 brew "zip"
-brew "zplug"
 brew "armmbed/formulae/arm-none-eabi-gcc", link: false
 brew "felixkratz/formulae/sketchybar"
 brew "koekeishiya/formulae/skhd", args: ["HEAD"]
