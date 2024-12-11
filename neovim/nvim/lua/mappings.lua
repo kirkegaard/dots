@@ -3,7 +3,7 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("n", "<leader>q", "<cmd> :bp<bar>sp<bar>bn<bar>bd<CR>")
 vim.keymap.set("n", "<leader>w", "<cmd> w <CR>")
-vim.keymap.set("i", "jk", "<ESC>")
+-- vim.keymap.set("i", "jk", "<ESC>")
 --
 -- copy whole filecontent
 vim.keymap.set("n", "<C-c>", "<cmd> %y+ <CR>")

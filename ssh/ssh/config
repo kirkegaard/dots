@@ -1,3 +1,15 @@
 Host *
   ServerAliveInterval 30
   ServerAliveCountMax 5
+
+Host sparky
+  HostName sparky.lowpoly.dk
+  Port 2222
+
+Host ant
+  HostName ant.lowpoly.dk
+  Port 2200
+
+Host denjin
+  HostName denjin.lowpoly.dk
+  Port 2200
