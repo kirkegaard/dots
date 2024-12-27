@@ -1,0 +1,1 @@
+copy ghostty ~/.config/ghostty

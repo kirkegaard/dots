@@ -1,0 +1,45 @@
+# Hack font is quirky on macos and has extreme letter spacing
+adjust-cell-width = -1
+
+# Without this i cant get block cursor :(
+shell-integration-features = no-cursor
+
+cursor-opacity = 0.75
+cursor-style = block
+cursor-style-blink = false
+
+font-family = "Hack Nerd Font Mono"
+font-family-bold = "Hack Nerd Font Mono Bold"
+font-family-italic = "Hack Nerd Font Mono Italic"
+font-family-bold-italic = "Hack Nerd Font Mono Bold Italic"
+font-size = 14
+font-thicken = true
+
+mouse-hide-while-typing = true
+
+# Theme
+# Bright colors
+palette = 0=#515d68
+palette = 1=#cb253d
+palette = 2=#53eaa8
+palette = 3=#fee381
+palette = 4=#329dcc
+palette = 5=#b84aa5
+palette = 6=#21bce9
+palette = 7=#fefefe
+
+# Dim colors
+palette = 8=#3c444d
+palette = 9=#cb253d
+palette = 10=#3eb383
+palette = 11=#fda544
+palette = 12=#266b85
+palette = 13=#ad417a
+palette = 14=#4d90dc
+palette = 15=#fefefe
+
+background = 0d151b
+foreground = ffffff
+cursor-color = 7f7f7f
+selection-background = cb392e
+selection-foreground = ffffff
