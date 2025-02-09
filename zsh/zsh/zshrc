@@ -2,6 +2,14 @@
 export ZSH_HOME=$HOME/.zsh
 export PROJECTS=$HOME/Development
 
+# Xcode
+# @NOTE Maybe theres a better way to set devtools paths?
+export PATH="/Applications/Xcode.app/Contents/Developer/usr/bin/:$PATH"
+
+# Android
+export ANDROID_HOME="/opt/homebrew/Caskroom/android-platform-tools/35.0.2/"
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+
 # Gameboy
 export SDCCDIR="$PROJECTS/gameboy/sdcc"
 export GBDK="$PROJECTS/gameboy/gbdk-2020/build/gbdk"
@@ -17,6 +25,7 @@ export PATH=$GOPATH/bin:$PATH
 
 # Java
 export SPRING_PROFILES_ACTIVE=local
+export OPERATOR=pip-dk
 
 # Python
 export PYTHONDONTWRITEBYTECODE=True
@@ -36,11 +45,11 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export EDITOR=nvim #BTW
 export VISUAL=$EDITOR
 
-# NVM
-export NVM_LAZY_LOAD=false
-export NVM_AUTO_USE=true
-export NVM_SYMLINK_CURRENT=true
-export PATH="$HOME/.nvm/current/bin/:$PATH"
+# asdf
+export ASDF_DATA_DIR="$HOME/.asdf"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+autoload -Uz compinit && compinit
 
 # FZF
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
@@ -73,14 +82,10 @@ fi
 [ -z "$ZPLUG_HOME" ] && export ZPLUG_HOME=$HOME/.zplug
 source $ZPLUG_HOME/init.zsh
 
-
-zplug "nnao45/zsh-kubectl-completion"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 zplug 'rupa/z', use:'*.sh'
-# zplug "lukechilds/zsh-nvm"
-# zplug 'pyenv/pyenv', as:"command", use:"bin/*"
 zplug 'junegunn/fzf', \
     use:"shell", \
     hook-build:'./install --all --no-update-rc --no-key-bindings'
@@ -93,14 +98,6 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
-
-# iTerm integration
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# pyenv
-# export PYENV_ROOT="$HOME/.pyenv"
-# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
 
 # sdkman
 export SDKMAN_DIR="/Users/christian/.sdkman"

@@ -4,13 +4,13 @@ sort-alphabetically() {
 
   for file in "${files[@]}"; do
     local filename=$(basename "$file")
-    local first_char=$(echo $filename | cut -c1 | tr [:upper:] [:lower:])
+    local first_char=$(echo $filename | cut -c1) 
 
     if [ ! -d "$dir/$first_char" ]; then
       mkdir "$dir/$first_char"
     fi
 
-    if [ "$dir/$first_char" != "$(dirname "$file")" ]; then
+    if [[ "$dir/$first_char" != "$(dirname "$file")" ]]; then 
       mv "$file" "$dir/$first_char"
     fi
   done
