@@ -48,7 +48,10 @@ export VISUAL=$EDITOR
 # asdf
 export ASDF_DATA_DIR="$HOME/.asdf"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
+# Completions
 fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+fpath=(/Users/christian/.docker/completions $fpath)
 autoload -Uz compinit && compinit
 
 # FZF
@@ -60,12 +63,12 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# Paths
-export PATH="$HOME/.bin:$HOME/.local/bin:$PATH"
-
 # Load all functions in fn dir
 for config_file ($ZSH_HOME/**/*.zsh) source $config_file
 # for config_file ($ZSH_HOME/**/completion.sh) source $config_file
+
+# Paths
+export PATH="$(asdf-paths):$HOME/.bin:$HOME/.local/bin:$PATH"
 
 # Mac specifics
 if [[ "$(uname -s)" == "Darwin" ]] then;
@@ -102,3 +105,4 @@ zplug load
 # sdkman
 export SDKMAN_DIR="/Users/christian/.sdkman"
 [[ -s "/Users/christian/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/christian/.sdkman/bin/sdkman-init.sh"
+

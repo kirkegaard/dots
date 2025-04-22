@@ -1,0 +1,19 @@
+asdf-paths() {
+  local asdf_dir="${ASDF_DATA_DIR:-$HOME/.asdf}"
+  local -a paths
+  local name version p
+
+  while read -r name version; do
+    if [[ -n "$name" && -n "$version" ]]; then
+      p="$asdf_dir/installs/$name/$version/bin"
+
+      if [[ -d "$p" ]]; then
+        paths+=("$p")
+      fi
+    fi
+  done < <(asdf current --no-header 2>/dev/null | awk '$2 !~ /__{5,}/ {print $1, $2}')
+
+  if [[ ${#paths[@]} -gt 0 ]]; then
+    echo "${(j.:.)paths}"
+  fi
+}

@@ -73,6 +73,11 @@ done
 # Detect the OS before running any scripts
 detect_os
 
+# Ensure ~/.config exists
+if [[ $dry_run == 0 ]]; then
+    mkdir -p ~/.config
+fi
+
 # If a target directory is specified, run its setup.sh
 if [[ -n $target_dir ]]; then
     setup_file="$script_dir/$target_dir/setup.sh"
