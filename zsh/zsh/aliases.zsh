@@ -2,7 +2,7 @@
 alias vim='nvim'
 alias so='source'
 alias cat='bat'
-alias ls='eza --icons'
+alias ls='eza --icons --group'
 alias l='ls'
 alias ll='ls -lh'
 alias la='ls -a'

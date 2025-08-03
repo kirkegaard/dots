@@ -52,7 +52,7 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 # Completions
 fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 fpath=(/Users/christian/.docker/completions $fpath)
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -C
 
 # FZF
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
